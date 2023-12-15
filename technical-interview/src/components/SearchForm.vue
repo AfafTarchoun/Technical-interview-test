@@ -17,6 +17,14 @@ export default {
     };
   },
   methods: {
+
+          // Debounce function to delay API call
+          debouncedSearch: _.debounce(function () {
+            if (this.searchTerm.trim() !== '') { // Check if the search term is not empty
+              this.searchGIFs(); // Trigger API call
+            }
+          }, 500),
+
           //async function to search for GIF using the given API
           async searchGIFs() {
           // Prevent the form's default behavior of submitting and reloading the page
