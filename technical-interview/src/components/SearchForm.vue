@@ -13,7 +13,8 @@ import _ from 'lodash'; // Import lodash library
 export default {
   data() {
     return {
-      searchTerm: '' // Holds the user's search term
+      searchTerm: '', // Holds the user's search term
+      cache: {} //cache object to store API response
     };
   },
   methods: {
