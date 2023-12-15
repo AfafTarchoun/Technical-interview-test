@@ -33,11 +33,9 @@ export default {
                 try {
                   let response;
                   if (this.cache[this.searchTerm]) {
-                    console.log("It's already cached");
                     // If the response is already cached, use the cached response
                     response = this.cache[this.searchTerm];
                   } else {
-                    console.log("It's not cached yet");
                     // Fetch GIFs based on the search term from API
                     response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=UC6QeKH1sTZwo7OgHc1oAJJu4JFV59TJ&q=${this.searchTerm}&limit=25&offset=0&rating=g&lang=en`);
                     // Convert the response to JSON format
@@ -46,7 +44,6 @@ export default {
                     });
                     this.cache[this.searchTerm] = response; // Cache the response
                   }
-                  console.log(response);
                   this.displayGIFs(response); // Display the GIFs from response
                   } catch (error) {
                       // Catching any fetching error
