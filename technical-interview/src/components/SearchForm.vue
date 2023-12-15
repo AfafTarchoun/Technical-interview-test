@@ -64,7 +64,7 @@ export default {
 }
 
 .search-input {
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   padding: 10px;
   font-size: 16px;
 }
