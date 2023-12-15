@@ -46,3 +46,17 @@
         }
     }
   </script>
+
+  <style>
+  /* Add CSS for grid layout */
+    .gif-display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .gif-container img {
+        width: 100%;
+        height: auto;
+    }
+  </style>
