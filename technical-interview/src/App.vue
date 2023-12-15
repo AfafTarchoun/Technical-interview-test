@@ -3,6 +3,14 @@
   <div id="app">
     <SearchForm />
     <div class="gif-display"></div>
+    <!-- Displayed GIFs will be populated here -->
+    <img
+        v-for="gif in gifs"
+        :key="gif.id"
+        :src="gif.images.original.url"
+        :alt="gif.title"
+        class="gif-item"
+      />
   </div>
 </template>
 
@@ -16,3 +24,26 @@ export default {
   }
 };
 </script>
+
+<style>
+
+/* CSS for grid layout to display GIFs */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gif-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gif-item {
+  width: 200px;
+  height: auto;
+}
+</style>
