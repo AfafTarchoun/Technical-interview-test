@@ -22,7 +22,12 @@ export default {
           // Debounce function to delay API call
           debouncedSearch: _.debounce(function () {
             if (this.searchTerm.trim() !== '') { // Check if the search term is not empty
-              this.searchGIFs(); // Trigger API call
+              if (this.cache[this.searchTerm]) {
+                // If the response is cached, display cached results
+                this.displayGIFs(this.cache[this.searchTerm]);
+              } else {
+                this.searchGIFs(); // Trigger API call if not in cache
+              }
             }
           }, 500),
 
