@@ -1,6 +1,6 @@
 <template>
   <!-- Create a form to input the search term -->
-  <form @submit.prevent="searchGIFs" class="search-form">
+  <form @input="debouncedSearch" class="search-form">
     <div class="input-container">
       <input type="text" v-model="searchTerm" placeholder="Enter your search term" class="search-input">
     </div>
@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import _ from 'lodash'; // Import lodash library
+
 export default {
   data() {
     return {
@@ -15,8 +17,8 @@ export default {
     };
   },
   methods: {
-      //async function to search for GIF using the given API
-    async searchGIFs() {
+          //async function to search for GIF using the given API
+          async searchGIFs() {
           // Prevent the form's default behavior of submitting and reloading the page
               if (this.searchTerm.trim() !== '') { // Check if the search term is not empty
                   try {
@@ -31,6 +33,7 @@ export default {
                   }
               }
           },
+
           //Display the GIFs on the webpage
           displayGIFs(gifs) {
               // Logic to display GIFs on the webpage
