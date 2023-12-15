@@ -30,16 +30,24 @@ export default {
           async searchGIFs() {
           // Prevent the form's default behavior of submitting and reloading the page
               if (this.searchTerm.trim() !== '') { // Check if the search term is not empty
-                  try {
-                      // Fetch GIFs based on the search term from API
-                      const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=UC6QeKH1sTZwo7OgHc1oAJJu4JFV59TJ&q=${this.searchTerm}&limit=25&offset=0&rating=g&lang=en`);
-                      // Convert the response to JSON format
-                      const data = await response.json();
-                      this.displayGIFs(data.data);
-                  } catch (error) {
-                      // Catching any fetching error
-                      console.error('Error fetching data:', error);
+                try {
+                  let response;
+                  if (this.cache[this.searchTerm]) {
+                    // If the response is already cached, use the cached response
+                    response = this.cache[this.searchTerm];
+                  } else {
+                    // Fetch GIFs based on the search term from API
+                    response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=UC6QeKH1sTZwo7OgHc1oAJJu4JFV59TJ&q=${this.searchTerm}&limit=25&offset=0&rating=g&lang=en`);
+                    // Convert the response to JSON format
+                    response = await response.json();
+                    this.cache[this.searchTerm] = response.data; // Cache the response
                   }
+
+                  this.displayGIFs(response); // Display the GIFs from response
+                } catch (error) {
+                  // Catching any fetching error
+                  console.error('Error fetching data:', error);
+                }
               }
           },
 
