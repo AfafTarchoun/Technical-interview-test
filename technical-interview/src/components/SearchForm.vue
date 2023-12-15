@@ -1,12 +1,11 @@
 <template>
-    <!-- Create a form to input the search term -->
-    <form @submit.prevent="searchGIFs" class="search-form">
-      <div class="input-container">
-        <input type="text" v-model="searchTerm" placeholder="Enter your search term" class="search-input">
-      </div>
-      <button type="submit" class="search-button">Search</button>
-    </form>
-  </template>
+  <!-- Create a form to input the search term -->
+  <form @submit.prevent="searchGIFs" class="search-form">
+    <div class="input-container">
+      <input type="text" v-model="searchTerm" placeholder="Enter your search term" class="search-input">
+    </div>
+  </form>
+</template>
 
 <script>
 export default {
@@ -38,7 +37,7 @@ export default {
               const gifContainer = document.querySelector('.gif-display');
               gifContainer.innerHTML = ''; // Clear previous results
               gifs.forEach(gif => {
-                  const img = document.createElement('img'); //Assuming a simple display of images
+                  const img = document.createElement('img');
                   img.src = gif.images.original.url;
                   img.alt = gif.title;
                   gifContainer.appendChild(img);
@@ -64,7 +63,7 @@ export default {
 }
 
 .search-input {
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   padding: 10px;
   font-size: 16px;
 }
