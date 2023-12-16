@@ -11,7 +11,6 @@ After completing the technical interview coding test, the next step will be impl
 
 - Search input debouncing.
 - Caching API response.
-- State management.
 
 # 2. Technical Requirements
 
@@ -28,12 +27,6 @@ c. To prevent calling the API on every key change, implement a debouncing techni
 2. **Caching:**
 
 a. The user might search for the same keywork multiple times, implement a caching solution to optimize the API calls and save expensive requests.
-
-3. **State management:**
-
-a. Implement a state management library of your choice.
-
-b. Migrate the API call and rendering GIF images logic to Redux pattern (action, reducer, selector).
 
 ## Approach:
 
