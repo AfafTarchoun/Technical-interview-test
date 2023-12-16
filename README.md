@@ -77,3 +77,5 @@ npm install
 ```bash
 npm run serve
 ```
+## Issue with state management:
+- check repo issues
