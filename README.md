@@ -51,15 +51,15 @@ Styling:
 ## Getting Started
 
 1. Clone the repository to your local machine:
- ```bash
+```bash
 git clone https://github.com/AfafTarchoun/Technical-interview-test.git
 cd Technical-interview-test/technical-interview
 ```
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 3. Run the vue project:
-   ```bash
-   npm run serve
-   ```
+```bash
+npm run serve
+```
